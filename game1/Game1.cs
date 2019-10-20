@@ -13,7 +13,10 @@ namespace game1
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 1024;
+            graphics.PreferredBackBufferWidth = 1280;
             Content.RootDirectory = "Content";
+            IsMouseVisible = true;
         }
 
         protected override void Initialize()
@@ -27,7 +30,7 @@ namespace game1
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Resources.LoadContent(Content);
-            _main = new Main();
+            _main = new Main(graphics.GraphicsDevice);
         }
 
         protected override void UnloadContent()
@@ -47,8 +50,10 @@ namespace game1
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
+
             _main.Draw(spriteBatch);
+            
             base.Draw(gameTime);
         }
     }

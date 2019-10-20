@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace game1
 {
+    
+    //INPUT
+    //ANIMACJA
+    //TARCIE
     public enum Direction
     {
         Up, Down, Left, Right
@@ -16,13 +20,20 @@ namespace game1
 
     class Postac
     {
-        Rectangle Hitbox;
+        public Rectangle Hitbox;
         Direction Direction;    
-        int Speed = 2;
-        int Szer, Wysok,Czas,SzybAnimacji=10;
+        int Speed = 1;
+        int Poslizg = 0;
+        int Szer, Wysok,Czas,SzybAnimacji=7;
+        int MyszX, MyszY;
         bool Animowac;
-        public Postac()
+        int GTime;
+        int GRAWITACJA = 1;
+        bool devMod = false;
+        Kolizja _kolizja;
+        public Postac(GraphicsDevice graphicsDevice)
         {
+            _kolizja = new Kolizja(Resources.Postac,graphicsDevice);
             this.Hitbox = new Rectangle(0, 0, 51, 47);
             this.Szer = 4;
             this.Wysok = 1;
@@ -31,8 +42,10 @@ namespace game1
         }
         public void Animacja()
         {
+            
             this.Czas++;
-            if (this.Czas == this.SzybAnimacji)
+            
+            if (this.Czas == this.SzybAnimacji && Math.Abs(this.Poslizg) >= 0)
             {
                 this.Czas = 0;
                 if (this.Animowac)
@@ -40,7 +53,7 @@ namespace game1
                     this.Szer++;
                     if (this.Szer > 4)
                     {
-                        this.Szer = 1;
+                        this.Szer = 3;
                         this.Animowac = false;
                     }
                 }
@@ -55,68 +68,85 @@ namespace game1
                 }
 
             }
+
         }
         public void Update(MouseState mysz, KeyboardState klawiatura)
         {
-            if (klawiatura.IsKeyDown(Keys.Right))
+            
+            MyszX = mysz.Position.X;
+            MyszY = mysz.Position.Y;
+            if (klawiatura.IsKeyDown(Keys.Left) && klawiatura.IsKeyDown(Keys.Right))
             {
-                this.Hitbox.X += this.Speed;
+                this.Poslizg = 0;
+                this.Wysok = 1;
+            } else if (klawiatura.IsKeyDown(Keys.Right))
+            {
+                if (this.Poslizg <= 2) this.Poslizg += this.Speed;
                 this.Direction = Direction.Right;
                 this.Animacja();
-            }
-            if (klawiatura.IsKeyDown(Keys.Left))
+
+            } else if (klawiatura.IsKeyDown(Keys.Left))
             {
-                this.Hitbox.X -= this.Speed;
+                if (this.Poslizg >= -2) this.Poslizg -= this.Speed;
                 this.Direction = Direction.Left;
                 this.Animacja();
-
-
             }
-            if (klawiatura.IsKeyDown(Keys.Down))
+            if (klawiatura.IsKeyDown(Keys.F1))
             {
-                this.Hitbox.Y += this.Speed;
-                this.Direction = Direction.Down;
-                this.Animacja();
+                devMod = !devMod;
+            }
 
 
-            }
-            if (klawiatura.IsKeyDown(Keys.Up))
-            {
-                this.Hitbox.Y -= this.Speed;
-                this.Direction = Direction.Up;
-                this.Animacja();
-                
 
-            }
-            if(klawiatura.IsKeyUp(Keys.Up) && klawiatura.IsKeyUp(Keys.Down) &&
-                klawiatura.IsKeyUp(Keys.Left) && klawiatura.IsKeyUp(Keys.Right))
+            if (klawiatura.IsKeyUp(Keys.Left) && klawiatura.IsKeyUp(Keys.Right))
             {
-                this.Wysok = 2;
-                this.Czas = 0; 
-            }
-            switch (this.Direction)
-            {
-                case Direction.Up:
-                    this.Wysok = 4;
-                    break;
-                case Direction.Down:
-                    this.Wysok = 1;
-                    break;
-                case Direction.Left:
-                    this.Wysok = 2;
-                    break;
-                case Direction.Right:
+                this.Szer = 1;
+                this.Wysok = 1;
+                this.Czas = 0;
+                if (this.Poslizg > 0)
+                {
+                    this.Poslizg -= 1;
+                } else if (this.Poslizg < 0)
+                {
+                    this.Poslizg += 1;
+                }
+
+                }
+                if (this.Poslizg > 0)
+                {
                     this.Wysok = 3;
-                    break;
+                } else if (this.Poslizg < 0)
+                {
+                    this.Wysok = 2;
             }
-            //RUCH BOHATERA
-            //SPRAWDZENIE PRZYCISKÓW
+            
+            GTime++;
+            this.Hitbox.X += (int)this.Poslizg;
+            this.Hitbox.Y += GRAWITACJA;
         }
+        //ZCZYTYWANIE KLAWIATURY
+        //RUCH BOHATERA
+        //SPRAWDZENIE PRZYCISKÓW
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(Resources.Postac, this.Hitbox,new Rectangle((this.Szer-1)*51, (this.Wysok-1)*47 ,51,47), Color.White);
+            if(devMod == true)_kolizja.Draw(spriteBatch, Hitbox);
             spriteBatch.End();
+            spriteBatch.Begin();
+            if (devMod == true)
+            {
+                spriteBatch.DrawString(Resources.Czcionka, string.Format("KOORDYNATY X:{0}   Y:{1}", this.Hitbox.X, this.Hitbox.Y), new Vector2(0, 0), Color.Black);
+                spriteBatch.DrawString(Resources.Czcionka, string.Format("CZAS GRY:{0}", GTime), new Vector2(0, 25), Color.Black);
+                spriteBatch.DrawString(Resources.Czcionka, string.Format("PREDKOSC:{0}  GRAWITACJA:{1}", this.Poslizg, GRAWITACJA), new Vector2(0, 50), Color.Black);
+                spriteBatch.DrawString(Resources.Czcionka, string.Format("MYSZ X:{0}  MYSZ Y:{1}", MyszX, MyszY), new Vector2(0, 75), Color.Black);
+
+
+               
+            }
+            spriteBatch.End();
+
         }
+        
     }
 }

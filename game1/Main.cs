@@ -12,17 +12,26 @@ namespace game1
     class Main
     {
         Postac akt_postac;
-        public Main()
+        Kamera _kamera;
+        public Main(GraphicsDevice graphicsDevice)
         {
-            akt_postac = new Postac();
+            _kamera = new Kamera();
+
+            akt_postac = new Postac(graphicsDevice);
         }
         public void Update(MouseState mysz,KeyboardState klawiatura)
         {
             akt_postac.Update(mysz,klawiatura);
+            _kamera.Follow(akt_postac.Hitbox);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin(transformMatrix: _kamera.Transform);
+            spriteBatch.Draw(Resources.mapa,new Rectangle(0,0,Resources.mapa.Height/2,Resources.mapa.Width/2),Color.White);
+            spriteBatch.End();
             akt_postac.Draw(spriteBatch);
+
+
         }
     }
 }

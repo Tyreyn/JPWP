@@ -11,11 +11,15 @@ namespace game1
 {
     class Resources
     {
+        public static SpriteFont Czcionka;
         public static Texture2D Postac;
+        public static Texture2D mapa;
 
         public static void LoadContent(ContentManager Content)
         {
+            Czcionka = Content.Load<SpriteFont>("Czcionka");
             Postac = Content.Load<Texture2D>("crowley_wings");
+            mapa = Content.Load<Texture2D>("test_map");
         }
 
     }
