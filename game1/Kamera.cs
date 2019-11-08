@@ -10,18 +10,48 @@ namespace game1
 {
     class Kamera
     {
-        public Matrix Transform { get; private set; }
-
-        public void Follow(Rectangle Position)
+        public Matrix transformMapa;
+        public Matrix transformGracz;
+        float Zoom = 1.25f;
+        GraphicsDevice Widok;
+        Vector2 Srodek;
+        public Vector2 kameraMax;
+        public Kamera(GraphicsDevice nowyWidok)
         {
-            var position = Matrix.CreateTranslation(
-              -Position.X - (51 / 2),
-              -Position.Y - (47 / 2),
-              0);
+            Widok = nowyWidok;
+            kameraMax = new Vector2(Resources.mapa.Height  -(1280 / Zoom / 2),
+            Resources.mapa.Width-(1024 / Zoom / 2));
 
-            var offset = Matrix.CreateTranslation(0,0,0);
 
-            Transform = position * offset;
         }
+
+        //JESLI KAMERA WYCHODZI POZA MAPE NIE ZMIENIA POLOZENIA
+        public void Update(GameTime gameTime, Postac postac)
+        {
+            Srodek = new Vector2(1280/2,1024/2);
+
+            Widok.Viewport = new Viewport(0, 0, 1280, 1024);
+            transformMapa = Matrix.CreateTranslation(-(int)postac.Hitbox.X,
+                -(int)postac.Hitbox.Y, 0) *                                             //ZMIANA USTAWIENIA MAPY POD WPLYWEM RUCHU BOHATERA
+                Matrix.CreateRotationZ(0) *
+                Matrix.CreateScale(new Vector3(Zoom, Zoom, 0)) *
+                Matrix.CreateTranslation(new Vector3(Srodek, 0));
+
+
+            
+                transformGracz = Matrix.CreateTranslation(-(int)postac.Hitbox.X,
+               -(int)postac.Hitbox.Y - 100, -100) *                                             //ZMIANA USTAWIENIA GRACZA WZGLEDEM KAMERY POD WPLYWEM RUCHU BOHATERA
+                Matrix.CreateRotationZ(0) *
+               Matrix.CreateScale(new Vector3(Zoom, Zoom, 0)) *
+               Matrix.CreateTranslation(new Vector3(Srodek, 0));
+            
+
+            
+
+        }
+       
+
+
+
     }
 }

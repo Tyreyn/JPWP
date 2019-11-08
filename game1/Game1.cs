@@ -43,7 +43,7 @@ namespace game1
         {
 
 
-            _main.Update(Mouse.GetState(), Keyboard.GetState());
+            _main.Update(Mouse.GetState(), Keyboard.GetState(),gameTime);
             base.Update(gameTime);
         }
 

@@ -49,6 +49,8 @@
     <Compile Include="Kamera.cs" />
     <Compile Include="Kolizja.cs" />
     <Compile Include="Main.cs" />
+    <Compile Include="Mapa.cs" />
+    <Compile Include="Podloga.cs" />
     <Compile Include="Postac.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Mapa\niebo.jpg" />
+    <Content Include="Content\Mapa\podloga.jpg" />
     <Content Include="Content\Postac\crowley_wings.png" />
     <Content Include="Content\test_map.jpg" />
     <Content Include="Icon.ico" />
@@ -69,6 +73,7 @@
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
     <None Include="app.manifest" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="Content\Czcionka.spritefont" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
