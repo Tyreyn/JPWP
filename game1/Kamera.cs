@@ -12,7 +12,7 @@ namespace game1
     {
         public Matrix transformMapa;
         public Matrix transformGracz;
-        float Zoom = 1.25f;
+        float Zoom = 1f;
         GraphicsDevice Widok;
         Vector2 Srodek;
         public Vector2 kameraMax;

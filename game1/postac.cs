@@ -9,54 +9,54 @@ using System.Threading.Tasks;
 
 namespace game1
 {
-    
+
     //INPUT
     //ANIMACJA
     //TARCIE
     public enum Direction
     {
         Left, Right
-        
+
     };
-    
+
 
     class Postac
     {
         public Rectangle Hitbox;
-        float Speed = 2f;
+        float Speed = 5;
         public Vector2 przyspieszenie;
-        int Szer, Wysok,Czas,SzybAnimacji=7;
+        int Szer, Wysok, Czas, SzybAnimacji = 7;
         int MyszX, MyszY;
         bool Animowac;
         int GTime;
-        float jumpVelocity = 15f;
+        float jumpVelocity = 16;
         float G = 0.5f;
         float friction = 0.5f;
         bool devMod = true;
         bool applyGravity = true;
         KeyboardState poprzedniStan;
-        bool spadanie,skok;
+        bool spadanie, skok;
         public int j = 0, i = 0;
         Podloga _podloga;
         Kolizja _kolizja;
         public Postac(GraphicsDevice graphicsDevice)
         {
-            _kolizja = new Kolizja(Resources.Postac,graphicsDevice);
-            this.Hitbox = new Rectangle(400, 644, 51, 47);
+            _kolizja = new Kolizja(Resources.Postac, graphicsDevice);
+            this.Hitbox = new Rectangle(400, 644, 47, 44);
             this.Szer = 4;
             this.Wysok = 1;
             this.Animowac = true;
             this.przyspieszenie = new Vector2(0, 0);
             poprzedniStan = Keyboard.GetState();
             _podloga = new Podloga(graphicsDevice);
-            
+
 
         }
         public void Animacja()
         {
-            
+
             this.Czas++;
-            
+
             if (this.Czas == this.SzybAnimacji && Math.Abs(this.przyspieszenie.X) >= 0)
             {
                 this.Czas = 0;
@@ -82,7 +82,7 @@ namespace game1
             }
 
         }
-        public void Update(MouseState mysz, KeyboardState klawiatura,GameTime gameTime)
+        public void Update(MouseState mysz, KeyboardState klawiatura, GameTime gameTime)
         {
             skok = false;
             MyszX = mysz.Position.X;
@@ -92,11 +92,12 @@ namespace game1
                 this.przyspieszenie.Y += G;
             }
             if (applyGravity == true) this.przyspieszenie.Y += G;
-            Ruch(klawiatura); 
-            GTime++;        
-            this.Hitbox.Y += (int)this.przyspieszenie.Y ;
-            this.Hitbox.X += (int)this.przyspieszenie.X ;
+            Ruch(klawiatura);
+            GTime++;
+            this.Hitbox.Y += (int)this.przyspieszenie.Y;
+            this.Hitbox.X += (int)this.przyspieszenie.X;
             poprzedniStan = Keyboard.GetState();
+
             for (int i = 0; i < _podloga.pKloc.Count; i++)
             {
                 if (IntersectsFromTop(Hitbox, _podloga.pKloc[i]))
@@ -106,7 +107,7 @@ namespace game1
                     this.przyspieszenie.Y = 0;
                     spadanie = false;
                 }
-                 if (IntersectsFromRight(Hitbox, _podloga.pKloc[i]))
+                if (IntersectsFromRight(Hitbox, _podloga.pKloc[i]))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA PRAWO");
                     this.Hitbox.X = Hitbox.X - (int)this.przyspieszenie.X;
@@ -114,14 +115,14 @@ namespace game1
                     this.Czas = 0;
 
                 }
-                 if (IntersectsFromLeft(Hitbox, _podloga.pKloc[i]))
+                if (IntersectsFromLeft(Hitbox, _podloga.pKloc[i]))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA LEWO");
                     this.Hitbox.X = Hitbox.X - (int)this.przyspieszenie.X;
                     this.Czas = 0;
 
                 }
-                 if (IntersectsFromDown(Hitbox, _podloga.pKloc[i]))
+                if (IntersectsFromDown(Hitbox, _podloga.pKloc[i]))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA DOL");
                     this.Hitbox.Y = Hitbox.Y + (int)this.przyspieszenie.Y;
@@ -129,7 +130,7 @@ namespace game1
                     spadanie = true;
                 }
             }
-            
+
         }
         public void Ruch(KeyboardState klawiatura)
         {
@@ -138,6 +139,7 @@ namespace game1
             {
                 this.przyspieszenie.X = 0;
                 this.Wysok = 1;
+                this.Czas = 0;
             }
             if (klawiatura.IsKeyDown(Keys.D) && poprzedniStan.IsKeyDown(Keys.D))
             {
@@ -151,7 +153,7 @@ namespace game1
             }
             if (klawiatura.IsKeyDown(Keys.A) && poprzedniStan.IsKeyDown(Keys.A))
             {
-                if (this.przyspieszenie.X >= -6) this.przyspieszenie.X -= this.Speed * friction ;
+                if (this.przyspieszenie.X >= -6) this.przyspieszenie.X -= this.Speed * friction;
                 this.Wysok = 2;
                 this.Animacja();
                 System.Diagnostics.Debug.WriteLine("Wcisnieto A");
@@ -167,16 +169,15 @@ namespace game1
 
             }
 
-            if (klawiatura.IsKeyDown(Keys.W) && spadanie == false && skok == false )
+            if (klawiatura.IsKeyDown(Keys.W) && spadanie == false && skok == false)
             {
                 skok = true;
                 spadanie = true;
-                if(this.przyspieszenie.Y > -4)
-                this.przyspieszenie.Y -= jumpVelocity;
+                if (this.przyspieszenie.Y > -4)
+                    this.przyspieszenie.Y -= jumpVelocity;
 
                 System.Diagnostics.Debug.WriteLine("Wcisnieto W");
             }
-            
 
             if (klawiatura.IsKeyUp(Keys.A) && klawiatura.IsKeyUp(Keys.D))
             {
@@ -208,8 +209,8 @@ namespace game1
         public void Draw(SpriteBatch spriteBatch, Kamera _kamera)
         {
             spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, _kamera.transformGracz);
-            spriteBatch.Draw(Resources.Postac, this.Hitbox,new Rectangle((this.Szer-1)*51, (this.Wysok-1)*47 ,51,47), Color.White);
-            if(devMod == true)_kolizja.Draw(spriteBatch, Hitbox);
+            spriteBatch.Draw(Resources.Postac, this.Hitbox, new Rectangle((this.Szer - 1) * 51, (this.Wysok - 1) * 47, 51, 47), Color.White);
+            if (devMod == true) _kolizja.Draw(spriteBatch, Hitbox);
             spriteBatch.End();
 
             spriteBatch.Begin();
@@ -235,7 +236,7 @@ namespace game1
         private static bool IntersectsFromLeft(Rectangle postac, Rectangle obiekt)
         {
             var kolizja = Rectangle.Intersect(postac, obiekt);
-            return postac.Intersects(obiekt) && kolizja.X  == obiekt.X  && kolizja.Width <= kolizja.Height;
+            return postac.Intersects(obiekt) && kolizja.X == obiekt.X && kolizja.Width <= kolizja.Height;
         }
 
         private static bool IntersectsFromTop(Rectangle postac, Rectangle obiekt)
@@ -246,9 +247,8 @@ namespace game1
         private static bool IntersectsFromDown(Rectangle postac, Rectangle obiekt)
         {
             var kolizja = Rectangle.Intersect(postac, obiekt);
-            return postac.Intersects(obiekt) && kolizja.Y + kolizja.Height == obiekt.Y + obiekt.Height  && kolizja.Width >= kolizja.Height;
+            return postac.Intersects(obiekt) && kolizja.Y + kolizja.Height == obiekt.Y + obiekt.Height && kolizja.Width >= kolizja.Height;
         }
         #endregion
-        //wyliczanie powierzchni wspólnej kolizji dwóch obiektów 
     }
 }

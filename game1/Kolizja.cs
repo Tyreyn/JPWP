@@ -31,7 +31,8 @@ namespace game1
                         x == 64 - 9) // on the right
                     {
                         colours.Add(new Color(255, 255, 255, 255)); // white
-                    } else if (y == 9 || x == 0 || y == 64 - 9 || x == 64 - 1)
+                    }
+                    else if (y == 9 || x == 0 || y == 64 - 9 || x == 64 - 1)
                     {
                         colours.Add(new Color(255, 255, 255, 255)); // white
                     }
@@ -44,11 +45,11 @@ namespace game1
             _pKolizji = new Texture2D(graphicsDevice, 64, 64);
             _pKolizji.SetData<Color>(colours.ToArray());
         }
-        
+
         public virtual void Draw(SpriteBatch spriteBatch, Rectangle Position)
         {
 
-         //   spriteBatch.Draw(_pKolizji, Position, Color.Black);
-        }     
+            //   spriteBatch.Draw(_pKolizji, Position, Color.Black);
+        }
     }
 }
