@@ -22,27 +22,30 @@ namespace game1
 
     class Postac
     {
+        public Vector2 p_startowy;
         public Rectangle Hitbox;
-        float Speed = 5;
+        float Speed = 30;
         public Vector2 przyspieszenie;
         int Szer, Wysok, Czas, SzybAnimacji = 7;
         int MyszX, MyszY;
         bool Animowac;
         int GTime;
-        float jumpVelocity = 16;
-        float G = 0.5f;
+        float jumpVelocity = 1300;
+        float G = 0.75f;
         float friction = 0.5f;
         bool devMod = true;
         bool applyGravity = true;
         KeyboardState poprzedniStan;
         bool spadanie, skok;
         public int j = 0, i = 0;
+        float delta;
         Podloga _podloga;
         Kolizja _kolizja;
         public Postac(GraphicsDevice graphicsDevice)
         {
+            p_startowy = new Vector2(400, 644);
             _kolizja = new Kolizja(Resources.Postac, graphicsDevice);
-            this.Hitbox = new Rectangle(400, 644, 47, 44);
+            this.Hitbox = new Rectangle((int)p_startowy.X, (int)p_startowy.Y, 40, 50);
             this.Szer = 4;
             this.Wysok = 1;
             this.Animowac = true;
@@ -87,16 +90,17 @@ namespace game1
             skok = false;
             MyszX = mysz.Position.X;
             MyszY = mysz.Position.Y;
+            delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             if (spadanie == true)
             {
                 this.przyspieszenie.Y += G;
             }
+            
             if (applyGravity == true) this.przyspieszenie.Y += G;
             Ruch(klawiatura);
             GTime++;
-            this.Hitbox.Y += (int)this.przyspieszenie.Y;
-            this.Hitbox.X += (int)this.przyspieszenie.X;
-            poprzedniStan = Keyboard.GetState();
+            
 
             for (int i = 0; i < _podloga.pKloc.Count; i++)
             {
@@ -105,24 +109,26 @@ namespace game1
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA GORA");
                     this.Hitbox.Y = Hitbox.Y - (int)this.przyspieszenie.Y;
                     this.przyspieszenie.Y = 0;
+                    skok = true;
                     spadanie = false;
                 }
-                if (IntersectsFromRight(Hitbox, _podloga.pKloc[i]))
+                else if (IntersectsFromRight(Hitbox, _podloga.pKloc[i]))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA PRAWO");
                     this.Hitbox.X = Hitbox.X - (int)this.przyspieszenie.X;
-                    this.przyspieszenie.X = 0;
+                //    if ((int)this.przyspieszenie.X <= 0) this.przyspieszenie.X = 0;
                     this.Czas = 0;
 
                 }
-                if (IntersectsFromLeft(Hitbox, _podloga.pKloc[i]))
+                else if (IntersectsFromLeft(Hitbox, _podloga.pKloc[i]))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA LEWO");
                     this.Hitbox.X = Hitbox.X - (int)this.przyspieszenie.X;
-                    this.Czas = 0;
+                 //   if ((int)this.przyspieszenie.X >= 0) this.przyspieszenie.X = 0;
 
+                    this.Czas = 0;
                 }
-                if (IntersectsFromDown(Hitbox, _podloga.pKloc[i]))
+                else if (IntersectsFromDown(Hitbox, _podloga.pKloc[i]))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA DOL");
                     this.Hitbox.Y = Hitbox.Y + (int)this.przyspieszenie.Y;
@@ -144,7 +150,7 @@ namespace game1
             if (klawiatura.IsKeyDown(Keys.D) && poprzedniStan.IsKeyDown(Keys.D))
             {
 
-                if (this.przyspieszenie.X <= 6) this.przyspieszenie.X += this.Speed * friction;
+                if (this.przyspieszenie.X <= 6) this.przyspieszenie.X += this.Speed * delta;
                 this.Wysok = 3;
                 this.Animacja();
                 System.Diagnostics.Debug.WriteLine("Wcisnieto D");
@@ -153,7 +159,7 @@ namespace game1
             }
             if (klawiatura.IsKeyDown(Keys.A) && poprzedniStan.IsKeyDown(Keys.A))
             {
-                if (this.przyspieszenie.X >= -6) this.przyspieszenie.X -= this.Speed * friction;
+                if (this.przyspieszenie.X >= -6) this.przyspieszenie.X -= this.Speed * delta;
                 this.Wysok = 2;
                 this.Animacja();
                 System.Diagnostics.Debug.WriteLine("Wcisnieto A");
@@ -174,7 +180,7 @@ namespace game1
                 skok = true;
                 spadanie = true;
                 if (this.przyspieszenie.Y > -4)
-                    this.przyspieszenie.Y -= jumpVelocity;
+                    this.przyspieszenie.Y -= jumpVelocity* this.delta;
 
                 System.Diagnostics.Debug.WriteLine("Wcisnieto W");
             }
@@ -193,17 +199,11 @@ namespace game1
                 {
                     this.przyspieszenie.X += friction;
                 }
-                if (this.przyspieszenie.X > 0)
-                {
-                    this.Wysok = 3;
-                }
-                else if (this.przyspieszenie.X < 0)
-                {
-                    this.Wysok = 2;
-                }
             }
 
-
+            this.Hitbox.Y += (int)this.przyspieszenie.Y;
+            this.Hitbox.X += (int)this.przyspieszenie.X;
+            poprzedniStan = Keyboard.GetState();
         }
 
         public void Draw(SpriteBatch spriteBatch, Kamera _kamera)
@@ -218,9 +218,9 @@ namespace game1
             {
                 spriteBatch.DrawString(Resources.Czcionka, string.Format("KOORDYNATY X:{0}   Y:{1}", this.Hitbox.X, this.Hitbox.Y), new Vector2(0, 0), Color.Black);
                 spriteBatch.DrawString(Resources.Czcionka, string.Format("CZAS GRY:{0}", GTime), new Vector2(0, 25), Color.Black);
-                spriteBatch.DrawString(Resources.Czcionka, string.Format("PREDKOSC:{0}  GRAWITACJA:{1}", this.przyspieszenie.X, this.przyspieszenie.Y), new Vector2(0, 50), Color.Black);
+                spriteBatch.DrawString(Resources.Czcionka, string.Format("PREDKOSC:{0}  GRAWITACJA:{1}", (int)this.przyspieszenie.X, (int)this.przyspieszenie.Y), new Vector2(0, 50), Color.Black);
                 spriteBatch.DrawString(Resources.Czcionka, string.Format("MYSZ X:{0}  MYSZ Y:{1}", MyszX, MyszY), new Vector2(0, 75), Color.Black);
-                spriteBatch.DrawString(Resources.Czcionka, string.Format("CAM X:{0}  CAM Y:{1}", _kamera.kameraMax.X, _kamera.kameraMax.Y), new Vector2(0, 100), Color.Black);
+                spriteBatch.DrawString(Resources.Czcionka, string.Format("CAM X:{0}  CAM Y:{1}", _kamera.pozycja_kamera.X, _kamera.pozycja_kamera.Y), new Vector2(0, 100), Color.Black);
                 spriteBatch.DrawString(Resources.Czcionka, string.Format("MAP X:{0}  MAP Y:{1}", Resources.mapa.Height, Resources.mapa.Width), new Vector2(0, 125), Color.Black);
 
             }
