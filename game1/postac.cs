@@ -24,20 +24,21 @@ namespace game1
     {
         public Vector2 p_startowy;
         public Rectangle Hitbox;
+        float spadekKlocka;
         float Speed = 30;
         public Vector2 przyspieszenie;
         int Szer, Wysok, Czas, SzybAnimacji = 7;
         int MyszX, MyszY;
         bool Animowac;
         int GTime;
-        float jumpVelocity = 1300;
+        float jumpVelocity = 1250;
         float G = 0.75f;
         float friction = 0.5f;
         bool devMod = true;
         bool applyGravity = true;
         KeyboardState poprzedniStan;
-        bool spadanie, skok;
-        public int j = 0, i = 0;
+        bool spadanie = true, skok,czydalej=false;
+        public int j = 0, i = 0, spadajacy;
         float delta;
         Podloga _podloga;
         Kolizja _kolizja;
@@ -94,48 +95,76 @@ namespace game1
 
             if (spadanie == true)
             {
+                if ((int)this.przyspieszenie.Y <= 10) this.przyspieszenie.Y += G;
+            }
+
+            if (applyGravity == true)
+            {
                 this.przyspieszenie.Y += G;
             }
-            
-            if (applyGravity == true) this.przyspieszenie.Y += G;
             Ruch(klawiatura);
             GTime++;
-            
+
 
             for (int i = 0; i < _podloga.pKloc.Count; i++)
             {
-                if (IntersectsFromTop(Hitbox, _podloga.pKloc[i]))
+                if (IntersectsFromTop(Hitbox, _podloga.pKloc[i].wymiary))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA GORA");
                     this.Hitbox.Y = Hitbox.Y - (int)this.przyspieszenie.Y;
                     this.przyspieszenie.Y = 0;
                     skok = true;
                     spadanie = false;
+
+                    if (_podloga.pKloc[i].rodzaj == 2)
+                    {
+                        czydalej = true;
+                        spadajacy = i;
+                    }
+
                 }
-                else if (IntersectsFromRight(Hitbox, _podloga.pKloc[i]))
+                else if (IntersectsFromRight(Hitbox, _podloga.pKloc[i].wymiary))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA PRAWO");
                     this.Hitbox.X = Hitbox.X - (int)this.przyspieszenie.X;
-                //    if ((int)this.przyspieszenie.X <= 0) this.przyspieszenie.X = 0;
+                    //    if ((int)this.przyspieszenie.X <= 0) this.przyspieszenie.X = 0;
                     this.Czas = 0;
 
                 }
-                else if (IntersectsFromLeft(Hitbox, _podloga.pKloc[i]))
+                else if (IntersectsFromLeft(Hitbox, _podloga.pKloc[i].wymiary))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA LEWO");
                     this.Hitbox.X = Hitbox.X - (int)this.przyspieszenie.X;
-                 //   if ((int)this.przyspieszenie.X >= 0) this.przyspieszenie.X = 0;
+                    //   if ((int)this.przyspieszenie.X >= 0) this.przyspieszenie.X = 0;
 
                     this.Czas = 0;
                 }
-                else if (IntersectsFromDown(Hitbox, _podloga.pKloc[i]))
+                else if (IntersectsFromDown(Hitbox, _podloga.pKloc[i].wymiary))
                 {
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA DOL");
                     this.Hitbox.Y = Hitbox.Y + (int)this.przyspieszenie.Y;
                     this.przyspieszenie.Y = 0;
                     spadanie = true;
                 }
+
+
             }
+            if (czydalej == true)
+            {
+                spadekKlocka = 5;
+                for (int i = 0; i < _podloga.pKloc.Count; i++)
+                {
+                    if(spadajacy != i)
+                    if (IntersectsFromTop(_podloga.pKloc[spadajacy].wymiary, _podloga.pKloc[i].wymiary))
+                    {
+                        _podloga.pKloc[spadajacy].wymiary.Y = _podloga.pKloc[spadajacy].wymiary.Y - 5;
+                        spadekKlocka = 0;
+                        System.Diagnostics.Debug.WriteLine("COKOLWIEK");
+
+                    }
+                }
+            }
+        
 
         }
         public void Ruch(KeyboardState klawiatura)
@@ -203,17 +232,18 @@ namespace game1
 
             this.Hitbox.Y += (int)this.przyspieszenie.Y;
             this.Hitbox.X += (int)this.przyspieszenie.X;
+            _podloga.pKloc[spadajacy].wymiary.Y += (int)this.spadekKlocka;
             poprzedniStan = Keyboard.GetState();
         }
 
         public void Draw(SpriteBatch spriteBatch, Kamera _kamera)
         {
-            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, _kamera.transformGracz);
+            _podloga.Draw(spriteBatch);
             spriteBatch.Draw(Resources.Postac, this.Hitbox, new Rectangle((this.Szer - 1) * 51, (this.Wysok - 1) * 47, 51, 47), Color.White);
-            if (devMod == true) _kolizja.Draw(spriteBatch, Hitbox);
-            spriteBatch.End();
 
-            spriteBatch.Begin();
+            if (devMod == true) _kolizja.Draw(spriteBatch, Hitbox);
+
+         /*   spriteBatch.Begin();
             if (devMod == true)
             {
                 spriteBatch.DrawString(Resources.Czcionka, string.Format("KOORDYNATY X:{0}   Y:{1}", this.Hitbox.X, this.Hitbox.Y), new Vector2(0, 0), Color.Black);
@@ -225,7 +255,7 @@ namespace game1
 
             }
             spriteBatch.End();
-
+            */
         }
         #region wykrywanie_kolizji
         private static bool IntersectsFromRight(Rectangle postac, Rectangle obiekt)

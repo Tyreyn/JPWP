@@ -64,11 +64,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\efekt_swiatla.png" />
+    <Content Include="Content\lightmask.png" />
     <Content Include="Content\Mapa\niebo.jpg" />
     <Content Include="Content\Mapa\podloga.jpg" />
     <Content Include="Content\Postac\crowley_wings.png" />
     <Content Include="Content\test_map.jpg" />
     <Content Include="Icon.ico" />
+    <Content Include="Content\swiatlo.fx" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -12,7 +12,7 @@ namespace game1
     {
         private int x,y;
         public Matrix transformGracz;
-        float Zoom = 1;
+        float Zoom = 1f;
         float delta;
         GraphicsDevice Widok;
         Vector2 Srodek;
@@ -35,20 +35,41 @@ namespace game1
 
                 pozycja_kamera = new Vector2(postac.p_startowy.X, postac.p_startowy.Y);
 
-                if (postac.p_startowy.X - 640 < 0){ 
-                while (pozycja_kamera.X < 640)
+                if (postac.p_startowy.X - 640 < 0)
                 {
-                    pozycja_kamera.X += 5;
+                    while (pozycja_kamera.X < 640)
+                    {
+                        pozycja_kamera.X += 5;
+                    }
+                    while (pozycja_kamera.X > x)
+                    {
+                        pozycja_kamera.X -= 5;
+                    }
                 }
-                while (pozycja_kamera.X > x)
+                if (postac.p_startowy.Y + 512 < y)
                 {
-                    pozycja_kamera.X -= 5;
+                    while (pozycja_kamera.Y < y)
+                    {
+                        pozycja_kamera.Y += 5;
+                    }
+                    while (pozycja_kamera.Y > y )
+                    {
+                        pozycja_kamera.Y -= 5;
+                    }
                 }
-            }
 
                 update = false;
             }
-            Srodek = new Vector2(1280 / 2 - (int)postac.przyspieszenie.X *1.25f , 1024 / 2 - (int)postac.przyspieszenie.Y * 0.75f);
+            var przemieszczenie = (int)postac.przyspieszenie.Y;
+            if((int)postac.przyspieszenie.Y >= 10)
+            {
+                przemieszczenie = 6;
+            }
+            else if((int)postac.przyspieszenie.Y <= -10)
+            {
+                przemieszczenie = -6;
+            }
+            Srodek = new Vector2(1280 / 2 - (int)postac.przyspieszenie.X *0.75f , 1024 / 2 - przemieszczenie * 0.15f);
             delta = (int)gameTime.ElapsedGameTime.TotalSeconds;
 
             if ((postac.Hitbox.X - 640 > 0 && postac.Hitbox.X + 640 < x ))
@@ -69,13 +90,22 @@ namespace game1
                 
 
             }
-            if (postac.Hitbox.Y +540< y  && postac.Hitbox.Y - 540 > 0)
+            if (postac.Hitbox.Y +512 < y  && postac.Hitbox.Y - 512 > 0)
             {
+                while(pozycja_kamera.Y < postac.Hitbox.Y)
+                {
+                    pozycja_kamera.Y += 5;
+                }
+                while (pozycja_kamera.Y > postac.Hitbox.Y)
+                {
+                    pozycja_kamera.Y -= 5;
+                }
                 
-                    pozycja_kamera.Y = postac.Hitbox.Y;
-                
+                System.Diagnostics.Debug.WriteLine("KAMERA Y");
+
+               
             }
-            
+
 
 
 

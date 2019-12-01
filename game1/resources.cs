@@ -15,6 +15,8 @@ namespace game1
         public static Texture2D Postac;
         public static Texture2D mapa;
         public static Texture2D p, n;
+        public static Texture2D lightMask;
+        public static Effect effect1;
 
         public static void LoadContent(ContentManager Content)
         {
@@ -23,6 +25,8 @@ namespace game1
             mapa = Content.Load<Texture2D>("test_map");
             p = Content.Load<Texture2D>("Mapa/podloga");
             n = Content.Load<Texture2D>("Mapa/niebo");
+            effect1 = Content.Load<Effect>("swiatlo");
+            lightMask = Content.Load<Texture2D>("lightmask");
         }
 
     }
