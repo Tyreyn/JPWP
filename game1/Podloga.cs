@@ -57,12 +57,12 @@ namespace game1
             {
                 if (pKloc[i].rodzaj == 1)
                 {
-                    spriteBatch.Draw(Resources.p, new Vector2(pKloc[i].wymiary.X, pKloc[i].wymiary.Y), new Rectangle(0, 0, 64, 64), Color.Red);
+                    spriteBatch.Draw(Resources.p, new Vector2(pKloc[i].wymiary.X, pKloc[i].wymiary.Y), new Rectangle(0, 0, 64, 64), Color.White);
 
                 }
                 else if (pKloc[i].rodzaj == 2)
                 {
-                    spriteBatch.Draw(Resources.p, new Vector2(pKloc[i].wymiary.X, pKloc[i].wymiary.Y), new Rectangle(0, 0, 64, 64), Color.Blue);
+                    spriteBatch.Draw(Resources.p, new Vector2(pKloc[i].wymiary.X, pKloc[i].wymiary.Y), new Rectangle(0, 0, 64, 64), Color.White);
                 }
             }
         }

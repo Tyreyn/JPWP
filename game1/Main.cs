@@ -50,7 +50,7 @@ namespace game1
             };
            
             spriteBatch.Begin(SpriteSortMode.Immediate, blendState:blend);
-
+            
             spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X +64 , akt_postac.Hitbox.Y ), null, Color.Black * 0.15f, 0, new Vector2(128, 128), 20f, SpriteEffects.None, 0);
             spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X +64, akt_postac.Hitbox.Y ), null, Color.Black * 0.25f, 0, new Vector2(128, 128), 3f, SpriteEffects.None, 0);
             spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X +64, akt_postac.Hitbox.Y ), null, Color.Black * 0.5f, 0, new Vector2(128, 128), 2f, SpriteEffects.None, 0);
@@ -63,6 +63,7 @@ namespace game1
             graphicsDevice.Clear(Color.Black);
             graphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
             spriteBatch.Begin(transformMatrix: _kamera.transformGracz);
+            spriteBatch.Draw(Resources.las, new Rectangle(0, 0, 1440, 1860), Color.White);
             spriteBatch.Draw(darkness, Vector2.Zero, Color.Black);
             spriteBatch.End();
 
