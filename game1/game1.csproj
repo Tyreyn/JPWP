@@ -51,6 +51,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Mapa.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Menu_Koniec.cs" />
     <Compile Include="Menu_Pauza.cs" />
     <Compile Include="Podloga.cs" />
     <Compile Include="Postac.cs" />
@@ -87,6 +88,9 @@
     <Content Include="Content\test_map.jpg" />
     <Content Include="Icon.ico" />
     <Content Include="Content\swiatlo.fx" />
+    <Content Include="MENU\KONIEC.png" />
+    <Content Include="MENU\KONTYNUUJ.png" />
+    <Content Include="MENU\START.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

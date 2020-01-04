@@ -9,35 +9,27 @@ using System.Threading.Tasks;
 
 namespace game1
 {
-    class Menu_Pauza
+    class Menu_Koniec
     {
-        public Przycisk Kontynuuj;
         public Przycisk Wyjscie;
         public List<Przycisk> Przyciski_Pauza = new List<Przycisk>();
 
-        public Menu_Pauza(GraphicsDevice graphicsDevice)
+        public Menu_Koniec(GraphicsDevice graphicsDevice)
         {
-            Kontynuuj = new Przycisk(false, false, Resources.M_KONTYNUUJ,
-                    new Rectangle(1280 / 2 - 150, 300, 300, 100), new Rectangle(0, 56, 300, 100));
-            //Pomoc = new Przycisk(false, false, Resources.M_START,
-            //        new Vector2(550, 400), new Rectangle(200, 200, 150, 150));
+
+            
             Wyjscie = new Przycisk(false, false, Resources.M_KONIEC,
                     new Rectangle(1280 / 2 - 150, 500, 300, 100), new Rectangle(0, 56, 300, 100));
-            Przyciski_Pauza.Add(Kontynuuj);
             Przyciski_Pauza.Add(Wyjscie);
         }
         public void Stan_Gry()
         {
-            if (Kontynuuj.czy_klikniety == true)
-            {
-                Main.Akt_Stan = Main.Stan_Gry.Gra;
-                Kontynuuj.czy_klikniety = false;
-            }
-            else if (Wyjscie.czy_klikniety == true)
+            if (Wyjscie.czy_klikniety == true)
             {
                 Main.Akt_Stan = Main.Stan_Gry.Wyjscie;
                 Wyjscie.czy_klikniety = false;
             }
+            
         }
         public void Update(GameTime gametime, MouseState mysz)
         {
@@ -69,7 +61,9 @@ namespace game1
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(Kontynuuj.texture, Kontynuuj.pozycja, Kontynuuj.rozmiar, Kontynuuj.kolor);
+            spriteBatch.Draw(Resources.niebo, new Rectangle(0, 0, 1280, 1024), new Rectangle(0, 0, 320, 240), Color.White);
+            spriteBatch.DrawString(Resources.Czcionka, string.Format("ZDOBYLES {0}/3 PUNKTOW", Postac.Star), new Vector2(350, 200), Color.White);
+            if (Postac.HP <= 0) spriteBatch.DrawString(Resources.Czcionka, string.Format("ZGINALES"), new Vector2(550, 400), Color.White);
             spriteBatch.Draw(Wyjscie.texture, Wyjscie.pozycja, Wyjscie.rozmiar, Wyjscie.kolor);
             spriteBatch.End();
         }

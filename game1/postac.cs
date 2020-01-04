@@ -229,7 +229,6 @@ namespace game1
                     if (IntersectsFromTop(_podloga.pKloc[spadajacy].wymiary, _podloga.pKloc[i].wymiary))
                     {
                             
-                            _podloga.pKloc[spadajacy].wymiary.Y = _podloga.pKloc[spadajacy].wymiary.Y - 5;
                         spadekKlocka = 0;
                         System.Diagnostics.Debug.WriteLine("COKOLWIEK");
                             if (_podloga.pKloc[spadajacy].rodzaj == 2) _podloga.pKloc.Remove(_podloga.pKloc[spadajacy]);
@@ -366,6 +365,7 @@ namespace game1
             this.Hitbox.Y += (int)this.przyspieszenie.Y;
             this.Hitbox.X += (int)this.przyspieszenie.X;
             if (HP <= 0) Main.Akt_Stan = Main.Stan_Gry.Koniec;
+            if (Star >= 3) Main.Akt_Stan = Main.Stan_Gry.Koniec;
             _podloga.pKloc[spadajacy].wymiary.Y += (int)this.spadekKlocka;
             poprzedniStan = Keyboard.GetState();
         }

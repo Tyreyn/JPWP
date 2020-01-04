@@ -12,12 +12,14 @@ namespace game1
     class Resources
     { 
         public static SpriteFont Czcionka;
+
         public static Texture2D Postac;
         public static Texture2D mapa;
         public static Texture2D p, n,las,niebo,jaskinia;
         public static Texture2D lightMask;
         public static Effect effect1;
         public static Texture2D Star;
+        public static Texture2D M_START, M_KONIEC, M_KONTYNUUJ;
         public static Texture2D NULL, ONE, TWO, THREE, HP3, HP2, HP1;
         public static void LoadContent(ContentManager Content)
         {
@@ -25,6 +27,9 @@ namespace game1
             Postac = Content.Load<Texture2D>("Postac/postac");
             mapa = Content.Load<Texture2D>("test_map");
             las = Content.Load<Texture2D>("las");
+            M_START = Content.Load<Texture2D>("MENU/START");
+            M_KONIEC = Content.Load<Texture2D>("MENU/KONIEC");
+            M_KONTYNUUJ = Content.Load<Texture2D>("MENU/KONTYNUUJ");
             niebo = Content.Load<Texture2D>("niebo");
             jaskinia = Content.Load<Texture2D>("jaskinia");
             p = Content.Load<Texture2D>("Mapa/ziemia");

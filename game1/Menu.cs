@@ -14,10 +14,10 @@ namespace game1
         public bool czy_klikniety;
         public bool czy_najechano;
         public Texture2D texture;
-        public Vector2 pozycja;
+        public Rectangle pozycja;
         public Rectangle rozmiar;
         public Color kolor = new Color(255, 255, 255, 255);
-        public Przycisk(bool czy_najechano,bool czy_klikniety, Texture2D texture, Vector2 pozycja, Rectangle rozmiar)
+        public Przycisk(bool czy_najechano,bool czy_klikniety, Texture2D texture, Rectangle pozycja, Rectangle rozmiar)
         {
             this.czy_najechano = czy_najechano;
             this.czy_klikniety = czy_klikniety;
@@ -30,21 +30,20 @@ namespace game1
     {
         public Przycisk Start;
         public Przycisk Wyjscie;
-        public Przycisk Pomoc;
         
         public Rectangle Kursor;
         public List<Przycisk> Przyciski = new List<Przycisk>();
         public Menu(GraphicsDevice graphicsDevice)
         {
 
-            Start = new Przycisk(false,false,Resources.p,
-                    new Vector2(550, 200), new Rectangle(200, 200, 150, 150));
-            Pomoc = new Przycisk(false, false, Resources.p,
-                    new Vector2(550, 400), new Rectangle(200, 200, 150, 150));
-            Wyjscie = new Przycisk(false,false, Resources.p,
-                    new Vector2(550, 600), new Rectangle(200, 200, 150, 150));
+            Start = new Przycisk(false,false,Resources.M_START,
+                    new Rectangle(1280/2-150, 300,300,100), new Rectangle(0,56,300,100));
+            //Pomoc = new Przycisk(false, false, Resources.M_START,
+            //        new Vector2(550, 400), new Rectangle(200, 200, 150, 150));
+            Wyjscie = new Przycisk(false,false, Resources.M_KONIEC,
+                    new Rectangle(1280/2-150, 500,300,100), new Rectangle(0 ,56, 300, 100));
             Przyciski.Add(Start);
-            Przyciski.Add(Pomoc);
+            //Przyciski.Add(Pomoc);
             Przyciski.Add(Wyjscie);
         }
         public Main.Stan_Gry Stan_Gry(Main.Stan_Gry aktualny)
@@ -58,12 +57,6 @@ namespace game1
                 aktualny = Main.Stan_Gry.Wyjscie;
                 
                 //dodac wyłączenie gry
-            }else if(Pomoc.czy_klikniety == true)
-            {
-                aktualny = Main.Stan_Gry.Koniec;
-
-                Pomoc.czy_klikniety = false;
-                //dodać zapis/wczytanie
             }
             return aktualny;
         }
@@ -74,7 +67,7 @@ namespace game1
            
             foreach(Przycisk przycisk in Przyciski)
             {
-                if (Kursor.Intersects(new Rectangle((int)przycisk.pozycja.X, (int)przycisk.pozycja.Y, 150, 150)))
+                if (Kursor.Intersects(new Rectangle((int)przycisk.pozycja.X, (int)przycisk.pozycja.Y, 300, 100)))
                 {
                     if (przycisk.kolor.A == 255) przycisk.czy_najechano = false;
                     if (przycisk.kolor.A == 0) przycisk.czy_najechano = true;
@@ -98,11 +91,9 @@ namespace game1
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
-            spriteBatch.Draw(Resources.niebo, new Vector2(0, 0), new Rectangle(0, -500, 2000, 2000), Color.White);
+            spriteBatch.Draw(Resources.niebo, new Rectangle(0, 0, 1280, 1024), new Rectangle(0, 0, 320, 240), Color.White);
             spriteBatch.Draw(Start.texture,Start.pozycja,Start.rozmiar,Start.kolor);
-            spriteBatch.Draw(Wyjscie.texture, Wyjscie.pozycja, Wyjscie.rozmiar, Wyjscie.kolor);
-            spriteBatch.Draw(Pomoc.texture, Pomoc.pozycja, Pomoc.rozmiar, Pomoc.kolor);
-            
+            spriteBatch.Draw(Wyjscie.texture, Wyjscie.pozycja, Wyjscie.rozmiar, Wyjscie.kolor);            
             spriteBatch.End();
         }
     }

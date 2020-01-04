@@ -19,6 +19,7 @@ namespace game1
             Koniec,
             Wyjscie
         }
+        Menu_Koniec menu_Koniec;
         Mapa mapa1;
         Postac akt_postac;
         Kamera _kamera;
@@ -30,6 +31,7 @@ namespace game1
         public static Stan_Gry Akt_Stan = 0;
         public Main(GraphicsDevice graphicsDevice)
         {
+            menu_Koniec = new Menu_Koniec(graphicsDevice);
             menu_Pauza = new Menu_Pauza(graphicsDevice);
             _menu = new Menu(graphicsDevice);
             _kamera = new Kamera(graphicsDevice);
@@ -58,6 +60,10 @@ namespace game1
                 case Stan_Gry.Pauza:
                     menu_Pauza.Update(gameTime, mysz);
                     menu_Pauza.Stan_Gry();
+                    break;
+                case Stan_Gry.Koniec:
+                    menu_Koniec.Update(gameTime, mysz);
+                    menu_Koniec.Stan_Gry();
                     break;
                 
             }
@@ -149,6 +155,9 @@ namespace game1
                     break;
                 case Stan_Gry.Pauza:
                     menu_Pauza.Draw(spriteBatch);
+                    break;
+                case Stan_Gry.Koniec:
+                    menu_Koniec.Draw(spriteBatch);
                     break;
 
                 case Stan_Gry.Wyjscie:
