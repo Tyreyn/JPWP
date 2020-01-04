@@ -25,7 +25,7 @@ namespace game1
         public Podloga(GraphicsDevice graphicsDevice)
         {
             wczytaj();
-
+            
         }
         public void wczytaj()
         {
@@ -45,8 +45,11 @@ namespace game1
                 }else if (element == 2)
                 {
                     pKloc.Add(new Klocek(new Rectangle(j * 64, i * 64, 64, 64), 2));
+                }else if(element == 3)
+                {
+                    pKloc.Add(new Klocek(new Rectangle(j * 64, i * 64, 64, 64), 3));
                 }
-               
+
 
                 j++;
             }
@@ -57,12 +60,16 @@ namespace game1
             {
                 if (pKloc[i].rodzaj == 1)
                 {
-                    spriteBatch.Draw(Resources.p, new Vector2(pKloc[i].wymiary.X, pKloc[i].wymiary.Y), new Rectangle(0, 0, 64, 64), Color.White);
+                    spriteBatch.Draw(Resources.p, new Vector2(pKloc[i].wymiary.X, pKloc[i].wymiary.Y), new Rectangle(165,179,64,64), Color.White);
 
                 }
                 else if (pKloc[i].rodzaj == 2)
                 {
-                    spriteBatch.Draw(Resources.p, new Vector2(pKloc[i].wymiary.X, pKloc[i].wymiary.Y), new Rectangle(0, 0, 64, 64), Color.White);
+                    spriteBatch.Draw(Resources.p, new Vector2(pKloc[i].wymiary.X, pKloc[i].wymiary.Y), new Rectangle(165, 179, 64, 64), Color.White);
+                }
+                else if (pKloc[i].rodzaj == 3)
+                {
+                    spriteBatch.Draw(Resources.Star, new Rectangle(pKloc[i].wymiary.X, pKloc[i].wymiary.Y,64,64), new Rectangle(0, 0, 512, 512), Color.White);
                 }
             }
         }

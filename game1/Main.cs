@@ -11,14 +11,27 @@ namespace game1
 {
     class Main
     {
+        public enum Stan_Gry
+        {
+            Menu,
+            Gra,
+            Pauza,
+            Koniec,
+            Wyjscie
+        }
         Mapa mapa1;
         Postac akt_postac;
         Kamera _kamera;
+        Menu _menu;
         Podloga _podloga;
+        Menu_Pauza menu_Pauza;
         public static RenderTarget2D darkness;
         public static RenderTarget2D mainTarget;
+        public static Stan_Gry Akt_Stan = 0;
         public Main(GraphicsDevice graphicsDevice)
         {
+            menu_Pauza = new Menu_Pauza(graphicsDevice);
+            _menu = new Menu(graphicsDevice);
             _kamera = new Kamera(graphicsDevice);
             akt_postac = new Postac(graphicsDevice);
             mapa1 = new Mapa(graphicsDevice);
@@ -29,51 +42,120 @@ namespace game1
 
 
         }
+
         public void Update(MouseState mysz,KeyboardState klawiatura,GameTime gameTime)
         {
-            akt_postac.Update(mysz,klawiatura,gameTime);
-            _kamera.Update(gameTime, akt_postac);
+            Akt_Stan = _menu.Stan_Gry(Akt_Stan);
+            switch (Akt_Stan)
+            {
+                case Stan_Gry.Gra:
+                    akt_postac.Update(mysz, klawiatura, gameTime);
+                    _kamera.Update(gameTime, akt_postac);
+                    break;
+                case Stan_Gry.Menu:
+                    _menu.Update(gameTime, mysz);
+                    break;
+                case Stan_Gry.Pauza:
+                    menu_Pauza.Update(gameTime, mysz);
+                    menu_Pauza.Stan_Gry();
+                    break;
+                
+            }
+            
+        
 
         }
+        
         public void Draw(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
         {
-            
-
-            graphicsDevice.SetRenderTarget(darkness);
-            graphicsDevice.Clear(Color.Black);
-            var blend = new BlendState
+            switch (Akt_Stan)
             {
-                AlphaSourceBlend = Blend.Zero,
-                AlphaDestinationBlend = Blend.InverseSourceColor,
-                ColorSourceBlend = Blend.Zero,
-                ColorDestinationBlend = Blend.InverseSourceColor,
-            };
-           
-            spriteBatch.Begin(SpriteSortMode.Immediate, blendState:blend);
-            
-            spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X +64 , akt_postac.Hitbox.Y ), null, Color.Black * 0.15f, 0, new Vector2(128, 128), 20f, SpriteEffects.None, 0);
-            spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X +64, akt_postac.Hitbox.Y ), null, Color.Black * 0.25f, 0, new Vector2(128, 128), 3f, SpriteEffects.None, 0);
-            spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X +64, akt_postac.Hitbox.Y ), null, Color.Black * 0.5f, 0, new Vector2(128, 128), 2f, SpriteEffects.None, 0);
-            spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Black * 0.75f, 0, new Vector2(128, 128), 1.5f, SpriteEffects.None, 0);
-            spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Black * 0.85f, 0, new Vector2(128, 128), 0.8f, SpriteEffects.None, 0);
+                case Stan_Gry.Menu:
+                    _menu.Draw(spriteBatch);
+                    break;
+                case Stan_Gry.Gra:
+                    graphicsDevice.SetRenderTarget(darkness);
+                    graphicsDevice.Clear(Color.Black);
+                    var blend = new BlendState
+                    {
+                        AlphaSourceBlend = Blend.Zero,
+                        AlphaDestinationBlend = Blend.InverseSourceColor,
+                        ColorSourceBlend = Blend.Zero,
+                        ColorDestinationBlend = Blend.InverseSourceColor,
+                    };
 
-            spriteBatch.End();
+                    spriteBatch.Begin(SpriteSortMode.Immediate, blendState: blend);
+                    akt_postac.shineMask(spriteBatch);
 
-            graphicsDevice.SetRenderTarget(null);
-            graphicsDevice.Clear(Color.Black);
-            graphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
-            spriteBatch.Begin(transformMatrix: _kamera.transformGracz);
-            spriteBatch.Draw(Resources.las, new Rectangle(0, 0, 1440, 1860), Color.White);
-            spriteBatch.Draw(darkness, Vector2.Zero, Color.Black);
-            spriteBatch.End();
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Black * 0.3f, 0, new Vector2(128, 128), 20f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Black * 0.25f, 0, new Vector2(128, 128), 3f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Black * 0.5f, 0, new Vector2(128, 128), 1f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Black * 0.7f, 0, new Vector2(128, 128), 0.8f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Black * 0.85f, 0, new Vector2(128, 128), 0.1f, SpriteEffects.None, 0);
+                    
 
-            spriteBatch.Begin(transformMatrix: _kamera.transformGracz);
-            spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X +64, akt_postac.Hitbox.Y), null, Color.Red * 0.1f, 0, new Vector2(128, 128), 1.5f, SpriteEffects.None, 0);
-            spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X +64, akt_postac.Hitbox.Y), null, Color.Red * 0.05f, 0, new Vector2(128, 128), 0.75f, SpriteEffects.None, 0);
-            akt_postac.Draw(spriteBatch, _kamera);
+                    spriteBatch.End();
 
-            spriteBatch.End();
+                    graphicsDevice.SetRenderTarget(null);
+                    graphicsDevice.Clear(Color.Black);
+                    graphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
+                    spriteBatch.Begin(transformMatrix: _kamera.transformGracz);
+                    spriteBatch.Draw(Resources.las, new Rectangle(0, 0, 1440, 1860), Color.White);
+                    akt_postac.Draw_FLOOR(spriteBatch);
+                    spriteBatch.Draw(darkness, Vector2.Zero, Color.Black);
+                    spriteBatch.End();
 
+                    spriteBatch.Begin(transformMatrix: _kamera.transformGracz);
+                    akt_postac.shine(spriteBatch);
+
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Red * 0.1f, 0, new Vector2(128, 128), 1.5f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(akt_postac.Hitbox.X + 64, akt_postac.Hitbox.Y), null, Color.Red * 0.05f, 0, new Vector2(128, 128), 0.75f, SpriteEffects.None, 0);
+                    akt_postac.Draw(spriteBatch, _kamera);
+
+                    spriteBatch.End();
+                    spriteBatch.Begin();
+                    if (Postac.HP == 3)
+                    {
+                        spriteBatch.Draw(Resources.HP3, new Rectangle(0, 0, 300, 150), new Rectangle(0, 0, 542, 200), Color.White);
+                    }else if(Postac.HP == 2)
+                    {
+                        spriteBatch.Draw(Resources.HP2, new Rectangle(0, 0, 300, 150), new Rectangle(0, 0, 542, 200), Color.White);
+
+                    }else if(Postac.HP == 1)
+                    {
+                        spriteBatch.Draw(Resources.HP1, new Rectangle(0, 0, 300, 150), new Rectangle(0, 0, 542, 200), Color.White);
+
+                    }
+                    if (Postac.Star == 0)
+                    {
+                        spriteBatch.Draw(Resources.NULL, new Rectangle(980, 0, 300, 150), new Rectangle(0, 0, 542, 200), Color.White);
+                    }else if (Postac.Star == 1)
+                    {
+                        spriteBatch.Draw(Resources.ONE, new Rectangle(980, 0, 300, 150), new Rectangle(0, 0, 542, 200), Color.White);
+
+                    }
+                    else if (Postac.Star == 2)
+                    {
+                        spriteBatch.Draw(Resources.TWO, new Rectangle(980, 0, 300, 150), new Rectangle(0, 0, 542, 200), Color.White);
+
+                    }
+                    else if (Postac.Star == 3)
+                    {
+                        spriteBatch.Draw(Resources.THREE, new Rectangle(980, 0, 300, 150), new Rectangle(0, 0, 542, 200), Color.White);
+
+                    }
+                    spriteBatch.End();
+
+                    break;
+                case Stan_Gry.Pauza:
+                    menu_Pauza.Draw(spriteBatch);
+                    break;
+
+                case Stan_Gry.Wyjscie:
+                    Game1.self.Exit();
+                    break;
+
+            }
 
         }
 

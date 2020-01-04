@@ -17,7 +17,8 @@ namespace game1
         public static Texture2D p, n,las,niebo,jaskinia;
         public static Texture2D lightMask;
         public static Effect effect1;
-
+        public static Texture2D Star;
+        public static Texture2D NULL, ONE, TWO, THREE, HP3, HP2, HP1;
         public static void LoadContent(ContentManager Content)
         {
             Czcionka = Content.Load<SpriteFont>("Czcionka");
@@ -28,6 +29,14 @@ namespace game1
             jaskinia = Content.Load<Texture2D>("jaskinia");
             p = Content.Load<Texture2D>("Mapa/ziemia");
             n = Content.Load<Texture2D>("Mapa/niebo");
+            Star = Content.Load<Texture2D>("Mapa/Star");
+            NULL = Content.Load<Texture2D>("GUI/puste");
+            ONE = Content.Load<Texture2D>("GUI/1na3");
+            TWO = Content.Load<Texture2D>("GUI/2na3");
+            THREE = Content.Load<Texture2D>("GUI/3na3");
+            HP1 = Content.Load<Texture2D>("GUI/3 Cell hearts no border 1 of 3");
+            HP2 = Content.Load<Texture2D>("GUI/3 Cell hearts no border 2 of 3");
+            HP3 = Content.Load<Texture2D>("GUI/3 Cell hearts no border full");
             effect1 = Content.Load<Effect>("swiatlo");
             lightMask = Content.Load<Texture2D>("lightmask");
         }

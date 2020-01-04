@@ -10,18 +10,12 @@ using System.Threading.Tasks;
 namespace game1
 {
 
-    //INPUT
-    //ANIMACJA
-    //TARCIE
-    public enum Direction
-    {
-        Left, Right
-
-    };
-
-
     class Postac
     {
+        public bool isShine = true;
+        public float shining;
+        public static int Star = 0;
+        public static int HP = 3;
         public Vector2 p_startowy;
         public Rectangle Hitbox;
         float spadekKlocka;
@@ -31,8 +25,8 @@ namespace game1
         int MyszX, MyszY;
         bool Animowac;
         int GTime;
-        float jumpVelocity = 1250;
-        float G = 0.75f;
+        float jumpVelocity = 1300;
+        float G = 0.8f;
         float friction = 0.75f;
         bool devMod = true;
         bool applyGravity = true;
@@ -46,9 +40,9 @@ namespace game1
         SpriteEffects kierunek;
         public Postac(GraphicsDevice graphicsDevice)
         {
-            p_startowy = new Vector2(400, 644);
+            p_startowy = new Vector2(300, 720);
             _kolizja = new Kolizja(Resources.Postac, graphicsDevice);
-            this.Hitbox = new Rectangle((int)p_startowy.X, (int)p_startowy.Y, 24, 58);
+            this.Hitbox = new Rectangle((int)p_startowy.X, (int)p_startowy.Y, 32, 58);
             this.ruch_postaci = new Rectangle(3, 0, 12, 34);
             this.Szer = 4;
             this.Wysok = 1;
@@ -56,8 +50,7 @@ namespace game1
             this.przyspieszenie = new Vector2(0, 0);
             poprzedniStan = Keyboard.GetState();
             _podloga = new Podloga(graphicsDevice);
-            
-
+            shining = 0.2f;
         }
         public void Animacja()
         {
@@ -143,8 +136,9 @@ namespace game1
             if (spadanie == true)
             {
                 if ((int)this.przyspieszenie.Y <= 10) this.przyspieszenie.Y += G;
+                if ((int)this.przyspieszenie.Y >= 31) this.przyspieszenie.Y = 31;
                 this.ruch_postaci = new Rectangle(48, 65, 16, 39);
-                this.Hitbox.Width = 24;
+                this.Hitbox.Width = 32;
             }
 
             if (applyGravity == true)
@@ -159,6 +153,13 @@ namespace game1
             {
                 if (IntersectsFromTop(Hitbox, _podloga.pKloc[i].wymiary))
                 {
+                    if ((int)this.przyspieszenie.Y >= 30) HP--;
+                    if (_podloga.pKloc[i].rodzaj == 3)
+                        if (this.Hitbox.Intersects(_podloga.pKloc[i].wymiary))
+                        {
+                            Star++;
+                            _podloga.pKloc.Remove(_podloga.pKloc[i]);
+                        }
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA GORA");
                     this.Hitbox.Y = Hitbox.Y - (int)this.przyspieszenie.Y;
                     this.Wysok = 0;
@@ -175,34 +176,49 @@ namespace game1
                 }
                 else if (IntersectsFromRight(Hitbox, _podloga.pKloc[i].wymiary))
                 {
+                    if (_podloga.pKloc[i].rodzaj == 3)
+                        if (this.Hitbox.Intersects(_podloga.pKloc[i].wymiary))
+                        {
+                            Star++;
+                            _podloga.pKloc.Remove(_podloga.pKloc[i]);
+                        }
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA PRAWO");
                     this.Hitbox.X = Hitbox.X - (int)this.przyspieszenie.X;
                     this.Hitbox.Width = 24;
                     this.ruch_postaci = new Rectangle(3, 0, 12, 34);
+                    
                     //    if ((int)this.przyspieszenie.X <= 0) this.przyspieszenie.X = 0;
                     //    this.Czas = 0;
 
                 }
                 else if (IntersectsFromLeft(Hitbox, _podloga.pKloc[i].wymiary))
                 {
+                    if (_podloga.pKloc[i].rodzaj == 3)
+                        if (this.Hitbox.Intersects(_podloga.pKloc[i].wymiary))
+                        {
+                            Star++;
+                            _podloga.pKloc.Remove(_podloga.pKloc[i]);
+                        }
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA LEWO");
                     this.Hitbox.X = Hitbox.X - (int)this.przyspieszenie.X;
                     this.Hitbox.Width = 24;
 
-                    this.ruch_postaci = new Rectangle(3, 0, 12, 34);
-                    //   if ((int)this.przyspieszenie.X >= 0) this.przyspieszenie.X = 0;
-
-                    //         this.Czas = 0;
                 }
                 else if (IntersectsFromDown(Hitbox, _podloga.pKloc[i].wymiary))
                 {
+                    if (_podloga.pKloc[i].rodzaj == 3)
+                        if (this.Hitbox.Intersects(_podloga.pKloc[i].wymiary))
+                        {
+                            Star++;
+                            _podloga.pKloc.Remove(_podloga.pKloc[i]);
+                        }
                     System.Diagnostics.Debug.WriteLine("WYKRYTO KOLIZJA DOL");
                     this.Hitbox.Y = Hitbox.Y + (int)this.przyspieszenie.Y;
                     this.przyspieszenie.Y = 0;
                     spadanie = true;
+                    
                 }
-
-
+                
             }
             if (czydalej == true)
             {
@@ -212,16 +228,54 @@ namespace game1
                     if(spadajacy != i)
                     if (IntersectsFromTop(_podloga.pKloc[spadajacy].wymiary, _podloga.pKloc[i].wymiary))
                     {
-                        _podloga.pKloc[spadajacy].wymiary.Y = _podloga.pKloc[spadajacy].wymiary.Y - 5;
+                            
+                            _podloga.pKloc[spadajacy].wymiary.Y = _podloga.pKloc[spadajacy].wymiary.Y - 5;
                         spadekKlocka = 0;
                         System.Diagnostics.Debug.WriteLine("COKOLWIEK");
+                            if (_podloga.pKloc[spadajacy].rodzaj == 2) _podloga.pKloc.Remove(_podloga.pKloc[spadajacy]);
 
                     }
                 }
+                
             }
-        
+
+            if (shining < 0.49f)
+            {
+                shining += 0.005f;
+            }
+            if (shining >= 0.45f) isShine = false;
+            if (isShine == false)
+            {
+                shining -= 0.009f;
+            }
+            if (shining <= 0) isShine = true;   
+            
+            System.Diagnostics.Debug.WriteLine(shining);
 
         }
+        public void shine(SpriteBatch spriteBatch)
+        {
+            for (int i = 0; i < _podloga.pKloc.Count; i++)
+            {
+                if (_podloga.pKloc[i].rodzaj == 3)
+                {
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(_podloga.pKloc[i].wymiary.X + 32, _podloga.pKloc[i].wymiary.Y + 32), null, Color.Yellow * 0.05f, 0, new Vector2(128, 128), 1f, SpriteEffects.None, 0);
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(_podloga.pKloc[i].wymiary.X + 32, _podloga.pKloc[i].wymiary.Y + 32), null, Color.Yellow * shining * 0.5f, 0, new Vector2(128, 128), 1f * (shining + 0.4f), SpriteEffects.None, 0);
+                }
+            }
+           
+        }
+        public void shineMask(SpriteBatch spriteBatch)
+        {
+            for (int i = 0; i < _podloga.pKloc.Count; i++)
+            {
+                if (_podloga.pKloc[i].rodzaj == 3)
+                    spriteBatch.Draw(Resources.lightMask, new Vector2(_podloga.pKloc[i].wymiary.X + 32, _podloga.pKloc[i].wymiary.Y + 32), null, Color.Black , 0, new Vector2(128, 128), 1f* (shining+0.4f), SpriteEffects.None, 0);
+
+            }
+
+        }
+
         public void Ruch(KeyboardState klawiatura)
         {
 
@@ -230,7 +284,7 @@ namespace game1
             {
                 this.przyspieszenie.X = 0;
                 this.Czas = 0;
-                this.Hitbox.Width = 24;
+                this.Hitbox.Width = 28;
                 this.ruch_postaci = new Rectangle(0, 36, 30, 27);
 
 
@@ -263,6 +317,12 @@ namespace game1
                 System.Diagnostics.Debug.WriteLine("Wcisnieto F1");
 
             }
+            if (klawiatura.IsKeyUp(Keys.Escape) && poprzedniStan.IsKeyDown(Keys.Escape))
+            {
+                System.Diagnostics.Debug.WriteLine("Wcisnieto ESCAPE");
+                Main.Akt_Stan = Main.Stan_Gry.Pauza;
+                
+            }
 
             if (klawiatura.IsKeyDown(Keys.W) && spadanie == false && skok == false)
             {
@@ -283,7 +343,7 @@ namespace game1
                 if (this.Wysok == 0)
                 {
                     this.ruch_postaci = new Rectangle(3, 0, 12, 34);
-                    this.Hitbox.Width = 24;
+                    this.Hitbox.Width = 28;
 
                 }
                 this.Czas = 0;
@@ -305,30 +365,31 @@ namespace game1
 
             this.Hitbox.Y += (int)this.przyspieszenie.Y;
             this.Hitbox.X += (int)this.przyspieszenie.X;
+            if (HP <= 0) Main.Akt_Stan = Main.Stan_Gry.Koniec;
             _podloga.pKloc[spadajacy].wymiary.Y += (int)this.spadekKlocka;
             poprzedniStan = Keyboard.GetState();
         }
-
-        public void Draw(SpriteBatch spriteBatch, Kamera _kamera)
+        public void Draw_FLOOR(SpriteBatch spriteBatch)
         {
             _podloga.Draw(spriteBatch);
+        }
+        public void Draw(SpriteBatch spriteBatch, Kamera _kamera)
+        {
+            //_podloga.Draw(spriteBatch);
             spriteBatch.Draw(Resources.Postac, this.Hitbox, ruch_postaci, Color.White,0.0f,new Vector2(0,0),kierunek ,0.0f);
 
-            if (devMod == true) _kolizja.Draw(spriteBatch, Hitbox);
+            //if (devMod == true) _kolizja.Draw(spriteBatch, Hitbox);
 
-         /*   spriteBatch.Begin();
-            if (devMod == true)
-            {
-                spriteBatch.DrawString(Resources.Czcionka, string.Format("KOORDYNATY X:{0}   Y:{1}", this.Hitbox.X, this.Hitbox.Y), new Vector2(0, 0), Color.Black);
-                spriteBatch.DrawString(Resources.Czcionka, string.Format("CZAS GRY:{0}", GTime), new Vector2(0, 25), Color.Black);
-                spriteBatch.DrawString(Resources.Czcionka, string.Format("PREDKOSC:{0}  GRAWITACJA:{1}", (int)this.przyspieszenie.X, (int)this.przyspieszenie.Y), new Vector2(0, 50), Color.Black);
-                spriteBatch.DrawString(Resources.Czcionka, string.Format("MYSZ X:{0}  MYSZ Y:{1}", MyszX, MyszY), new Vector2(0, 75), Color.Black);
-                spriteBatch.DrawString(Resources.Czcionka, string.Format("CAM X:{0}  CAM Y:{1}", _kamera.pozycja_kamera.X, _kamera.pozycja_kamera.Y), new Vector2(0, 100), Color.Black);
-                spriteBatch.DrawString(Resources.Czcionka, string.Format("MAP X:{0}  MAP Y:{1}", Resources.mapa.Height, Resources.mapa.Width), new Vector2(0, 125), Color.Black);
-
-            }
-            spriteBatch.End();
-            */
+            //if (devMod == true)
+            //{
+            //    spriteBatch.DrawString(Resources.Czcionka, string.Format("KOORDYNATY X:{0}   Y:{1}", this.Hitbox.X, this.Hitbox.Y), new Vector2(this.Hitbox.X, this.Hitbox.Y), Color.White);
+            //    spriteBatch.DrawString(Resources.Czcionka, string.Format("CZAS GRY:{0}", GTime), new Vector2(0, 25), Color.White);
+            //    spriteBatch.DrawString(Resources.Czcionka, string.Format("PREDKOSC:{0}  GRAWITACJA:{1}", (int)this.przyspieszenie.X, (int)this.przyspieszenie.Y), new Vector2(this.Hitbox.X, this.Hitbox.Y+50), Color.White);
+            //    spriteBatch.DrawString(Resources.Czcionka, string.Format("MYSZ X:{0}  MYSZ Y:{1}", MyszX, MyszY), new Vector2(0, 75), Color.White);
+            //    spriteBatch.DrawString(Resources.Czcionka, string.Format("CAM X:{0}  CAM Y:{1}", _kamera.pozycja_kamera.X, _kamera.pozycja_kamera.Y), new Vector2(0, 100), Color.White);
+            //    spriteBatch.DrawString(Resources.Czcionka, string.Format("MAP X:{0}  MAP Y:{1}", Resources.mapa.Height, Resources.mapa.Width), new Vector2(0, 125), Color.White);
+            //}
+            
         }
         #region wykrywanie_kolizji
         private static bool IntersectsFromRight(Rectangle postac, Rectangle obiekt)

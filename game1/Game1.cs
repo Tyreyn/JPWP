@@ -12,12 +12,12 @@ namespace game1
         public int MyszX, MyszY;
         public static RenderTarget2D lightsTarget;
         public static RenderTarget2D mainTarget;
-
+        public static Game1 self;
         Main _main;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            
+            self = this;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             graphics.ApplyChanges();
@@ -34,8 +34,7 @@ namespace game1
             graphics.ApplyChanges();
             base.Initialize();
         }
-
-
+        
         protected override void LoadContent()
         {
             

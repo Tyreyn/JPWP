@@ -50,6 +50,8 @@
     <Compile Include="Kolizja.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Mapa.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="Menu_Pauza.cs" />
     <Compile Include="Podloga.cs" />
     <Compile Include="Postac.cs" />
     <Compile Include="Program.cs" />
@@ -64,8 +66,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\GUI\1na3.png" />
+    <Content Include="Content\GUI\2na3.png" />
+    <Content Include="Content\GUI\3 Cell hearts no border 1 of 3.png" />
+    <Content Include="Content\GUI\3 Cell hearts no border 2 of 3.png" />
+    <Content Include="Content\GUI\3 Cell hearts no border full.png" />
+    <Content Include="Content\GUI\3na3.png" />
+    <Content Include="Content\GUI\puste.png" />
     <Content Include="Content\las.png" />
     <Content Include="Content\jaskinia.png" />
+    <Content Include="Content\Mapa\Star.png" />
     <Content Include="Content\niebo.png" />
     <Content Include="Content\efekt_swiatla.png" />
     <Content Include="Content\lightmask.png" />
