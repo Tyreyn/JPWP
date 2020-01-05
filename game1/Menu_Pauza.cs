@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace game1
 {
+    /// <summary>
+    /// Menu pauzy w grze (działa tak jak menu)
+    /// </summary>
     class Menu_Pauza
     {
         public Przycisk Kontynuuj;

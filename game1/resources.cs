@@ -9,23 +9,52 @@ using Microsoft.Xna.Framework.Content;
 
 namespace game1
 {
+    /// <summary>
+    ///Wczytanie tekstur do programu
+    /// </summary>
     class Resources
-    { 
+    {
+        /// <summary>
+        /// tekstura czcionki
+        /// </summary>
         public static SpriteFont Czcionka;
 
+        /// <summary>
+        /// tekstura postaci
+        /// </summary>
         public static Texture2D Postac;
-        public static Texture2D mapa;
-        public static Texture2D p, n,las,niebo,jaskinia;
+        /// <summary>
+        /// tekstura tła i elementów w grze
+        /// </summary>
+        public static Texture2D p, n, las, niebo, jaskinia;
+        /// <summary>
+        /// tekstura maski światła
+        /// </summary>
         public static Texture2D lightMask;
         public static Effect effect1;
+        /// <summary>
+        /// tekstura gwiazdy w grze
+        /// </summary>
         public static Texture2D Star;
+        /// <summary>
+        /// tekstura przycisku
+        /// </summary>
         public static Texture2D M_START, M_KONIEC, M_KONTYNUUJ;
+        /// <summary>
+        /// tekstura życia i gwiazdek w menu
+        /// </summary>
         public static Texture2D NULL, ONE, TWO, THREE, HP3, HP2, HP1;
+        /// <summary>
+        /// Wczytanie tekstur
+        /// </summary>
         public static void LoadContent(ContentManager Content)
         {
+            //Za pomocą jednej z funkcji frameworku 
+            //wczytywany jest plik z wybranej scieżki
+
+
             Czcionka = Content.Load<SpriteFont>("Czcionka");
             Postac = Content.Load<Texture2D>("Postac/postac");
-            mapa = Content.Load<Texture2D>("test_map");
             las = Content.Load<Texture2D>("las");
             M_START = Content.Load<Texture2D>("MENU/START");
             M_KONIEC = Content.Load<Texture2D>("MENU/KONIEC");

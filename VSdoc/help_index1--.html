@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Index</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+	<style>
+		html,body {
+			margin: 0; padding: 0px;
+			height:100%; 
+			min-height:100%;
+			background-color: rgb(233,232,220);
+			font-family: Verdana, Arial, Helvetica, sans-serif;
+			font-style: normal;
+			font-weight: normal;
+			color: black;
+		}
+
+		body {font-size:75%;position:relative; margin-top:-1px; border-style: solid solid solid solid;	border-color: rgb(172,168,153);	border-width: 0px 0px 1px 0px;}
+		a { text-decoration:none; color:#06c }
+		form {padding:5px; margin:0px;}
+	</style>
+
+ <link rel="stylesheet" type="text/css" href="vsdocman_overrides.css"></link> 
+</head>
+<body style="direction: ltr;">
+	<form>
+	Look for:<br /><input style="width:100%" onKeyDown="check_input(this.value,get_match)" onKeyUp="check_input(this.value,get_match)"/>
+	</form>
+
+	<script>
+		var words = new Array(
+"Akt_Stan Field","Animacja Method","Animowac Field","Czas Field","Czcionka Field","Draw Method {game1.Game1}","Draw Method {game1.Main}","Draw Method {game1.Menu_Koniec}","Draw Method {game1.Menu_Pauza}","Draw Method {game1.Menu}","Draw Method {game1.Podloga}","Draw Method {game1.Postac}","Draw_FLOOR Method","G Field","GTime Field","Game1 Class","Game1 Constructor","HP Field","HP1 Field","HP2 Field","HP3 Field","Hitbox Field","Initialize Method","IntersectsFromDown Method","IntersectsFromLeft Method","IntersectsFromRight Method","IntersectsFromTop Method","Kamera Class","Kamera Constructor","Klocek Class","Klocek Constructor","Kontynuuj Field","Kursor Field","LoadContent Method {game1.Game1}","LoadContent Method {game1.Resources}","M_KONIEC Field","M_KONTYNUUJ Field","M_START Field","Main Class","Main Constructor {game1.Main}","Main Method {game1.Program}","Mapa Class","Mapa Constructor","Menu Class","Menu Constructor","Menu_Koniec Class","Menu_Koniec Constructor","Menu_Pauza Class","Menu_Pauza Constructor","MyszX Field","MyszY Field","NULL Field","ONE Field","Podloga Class","Podloga Constructor","Postac Class","Postac Constructor","Postac Field","Program Class","Przycisk Class","Przycisk Constructor","Przyciski Field","Przyciski_Pauza Field {game1.Menu_Koniec}","Przyciski_Pauza Field {game1.Menu_Pauza}","Resources Class","Ruch Method","SOLUTION-WIDE PROPERTIES Reference","Speed Field","Srodek Field","Stan_Gry Enumeration","Stan_Gry Method {game1.Menu_Koniec}","Stan_Gry Method {game1.Menu_Pauza}","Stan_Gry Method {game1.Menu}","Star Field {game1.Postac}","Star Field {game1.Resources}","Start Field","Szer Field","SzybAnimacji Field","THREE Field","TWO Field","Update Method {game1.Game1}","Update Method {game1.Kamera}","Update Method {game1.Main}","Update Method {game1.Menu_Koniec}","Update Method {game1.Menu_Pauza}","Update Method {game1.Menu}","Update Method {game1.Postac}","Widok Field","Wyjscie Field {game1.Menu_Koniec}","Wyjscie Field {game1.Menu_Pauza}","Wyjscie Field {game1.Menu}","Wysok Field","Zoom Field","_kamera Field","_main Field","_menu Field","_podloga Field {game1.Main}","_podloga Field {game1.Postac}","akt_postac Field","applyGravity Field","czy_klikniety Field","czy_najechano Field","czydalej Field","darkness Field","delta Field {game1.Kamera}","delta Field {game1.Postac}","devMod Field","effect1 Field","friction Field","game1 Namespace","graphics Field","i Field","isShine Field","j Field","jaskinia Field","jumpVelocity Field","kierunek Field","kolor Field","las Field","lightMask Field","lightsTarget Field","mainTarget Field {game1.Game1}","mainTarget Field {game1.Main}","mapa1 Field","mapa_1 Field","menu_Koniec Field","menu_Pauza Field","n Field","niebo Field","p Field","pKloc Field","p_startowy Field","poprzedniStan Field","pozycja Field","pozycja_kamera Field","przyspieszenie Field","rodzaj Field","rozmiar Field","ruch_postaci Field","self Field","shine Method","shineMask Method","shining Field","skok Field","spadajacy Field","spadanie Field","spadekKlocka Field","spriteBatch Field","texture Field","titleHeight Field","titleWidth Field","transformGracz Field","update Field","wczytaj Method","wymiary Field","x Field","y Field"
+		);
+		
+		
+		var oldHighlight = 0;
+		var oldKey = "";
+		
+		function get_match(text) {
+		    var ltext = text.toLowerCase();
+		    for(i in words) {
+		        if(words[i].toLowerCase().indexOf(ltext) == "0") {
+		            return words[i];
+		        }
+		    }
+		    return "";
+		}
+		
+		function highlight(keyword) {
+		    if(oldHighlight) oldHighlight.className = "";
+		    var el = parent.frames['zindex'].document.getElementById("w_"+keyword);
+		    el.className="highlighted";
+		    oldHighlight = el;
+		}
+		
+		function check_input(text, matchfun) {
+		    if(text!=oldKey) {
+		        var keyword = matchfun(text);
+		        if(keyword) {       
+		            highlight(keyword);
+		            parent.frames['zindex'].document.getElementById('w_'+keyword).scrollIntoView();
+		        }
+		        oldKey = text;
+		    }
+		}
+	</script>
+</body>
+</html>
+

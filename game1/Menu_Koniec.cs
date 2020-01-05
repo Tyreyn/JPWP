@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace game1
 {
+    /// <summary>
+    /// Menu końcowe gry (działa tak ja menu)
+    /// </summary>
     class Menu_Koniec
     {
         public Przycisk Wyjscie;
@@ -61,6 +64,7 @@ namespace game1
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
+           
             spriteBatch.Draw(Resources.niebo, new Rectangle(0, 0, 1280, 1024), new Rectangle(0, 0, 320, 240), Color.White);
             spriteBatch.DrawString(Resources.Czcionka, string.Format("ZDOBYLES {0}/3 PUNKTOW", Postac.Star), new Vector2(350, 200), Color.White);
             if (Postac.HP <= 0) spriteBatch.DrawString(Resources.Czcionka, string.Format("ZGINALES"), new Vector2(550, 400), Color.White);

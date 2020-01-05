@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DynamicHelp xmlns="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xsi:schemaLocation="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd">	
+   <LINKGROUP ID="game1" Title="SOLUTION-WIDE PROPERTIES Reference Help" Priority="2100">
+      <GLYPH Expanded="vs:/ctxhelp_show.gif" Collapsed="vs:/ctxhelp_hide.gif"/>
+   </LINKGROUP>
+
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.Akt_Stan" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000029.html" LinkGroup="game1">Akt_Stan Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Animacja" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000007E.html" LinkGroup="game1">Animacja Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Animowac" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000006B.html" LinkGroup="game1">Animowac Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Czas" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000067.html" LinkGroup="game1">Czas Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.Czcionka" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000008C.html" LinkGroup="game1">Czcionka Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.Draw" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000000C.html" LinkGroup="game1">Draw Method {game1.Game1}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.Draw" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000002C.html" LinkGroup="game1">Draw Method {game1.Main}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Koniec.Draw" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000049.html" LinkGroup="game1">Draw Method {game1.Menu_Koniec}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Pauza.Draw" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000051.html" LinkGroup="game1">Draw Method {game1.Menu_Pauza}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu.Draw" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000042.html" LinkGroup="game1">Draw Method {game1.Menu}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Podloga.Draw" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000005A.html" LinkGroup="game1">Draw Method {game1.Podloga}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Draw" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000084.html" LinkGroup="game1">Draw Method {game1.Postac}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Draw_FLOOR" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000083.html" LinkGroup="game1">Draw_FLOOR Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.G" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000006E.html" LinkGroup="game1">G Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.GTime" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000006C.html" LinkGroup="game1">GTime Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000001.html" LinkGroup="game1">Game1 Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.Game1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000008.html" LinkGroup="game1">Game1 Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.HP" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000005F.html" LinkGroup="game1">HP Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.HP1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000009F.html" LinkGroup="game1">HP1 Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.HP2" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000009E.html" LinkGroup="game1">HP2 Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.HP3" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000009D.html" LinkGroup="game1">HP3 Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Hitbox" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000061.html" LinkGroup="game1">Hitbox Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.Initialize" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000009.html" LinkGroup="game1">Initialize Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.IntersectsFromDown" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000088.html" LinkGroup="game1">IntersectsFromDown Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.IntersectsFromLeft" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000086.html" LinkGroup="game1">IntersectsFromLeft Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.IntersectsFromRight" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000085.html" LinkGroup="game1">IntersectsFromRight Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.IntersectsFromTop" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000087.html" LinkGroup="game1">IntersectsFromTop Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000000D.html" LinkGroup="game1">Kamera Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.Kamera" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000017.html" LinkGroup="game1">Kamera Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Klocek" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000052.html" LinkGroup="game1">Klocek Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Klocek.Klocek" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000055.html" LinkGroup="game1">Klocek Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Pauza.Kontynuuj" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000004B.html" LinkGroup="game1">Kontynuuj Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu.Kursor" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000003D.html" LinkGroup="game1">Kursor Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.LoadContent" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000000A.html" LinkGroup="game1">LoadContent Method {game1.Game1}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.LoadContent" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_00000000000000A0.html" LinkGroup="game1">LoadContent Method {game1.Resources}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.M_KONIEC" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000097.html" LinkGroup="game1">M_KONIEC Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.M_KONTYNUUJ" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000098.html" LinkGroup="game1">M_KONTYNUUJ Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.M_START" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000096.html" LinkGroup="game1">M_START Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000019.html" LinkGroup="game1">Main Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.Main" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000002A.html" LinkGroup="game1">Main Constructor {game1.Main}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Program.Main" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000008A.html" LinkGroup="game1">Main Method {game1.Program}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Mapa" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000002D.html" LinkGroup="game1">Mapa Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Mapa.Mapa" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000031.html" LinkGroup="game1">Mapa Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000003A.html" LinkGroup="game1">Menu Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu.Menu" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000003F.html" LinkGroup="game1">Menu Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Koniec" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000043.html" LinkGroup="game1">Menu_Koniec Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Koniec.Menu_Koniec" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000046.html" LinkGroup="game1">Menu_Koniec Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Pauza" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000004A.html" LinkGroup="game1">Menu_Pauza Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Pauza.Menu_Pauza" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000004E.html" LinkGroup="game1">Menu_Pauza Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.MyszX" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000069.html" LinkGroup="game1">MyszX Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.MyszY" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000006A.html" LinkGroup="game1">MyszY Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.NULL" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000099.html" LinkGroup="game1">NULL Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.ONE" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000009A.html" LinkGroup="game1">ONE Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Podloga" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000056.html" LinkGroup="game1">Podloga Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Podloga.Podloga" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000058.html" LinkGroup="game1">Podloga Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000005B.html" LinkGroup="game1">Postac Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Postac" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000007D.html" LinkGroup="game1">Postac Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.Postac" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000008D.html" LinkGroup="game1">Postac Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Program" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000089.html" LinkGroup="game1">Program Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Przycisk" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000032.html" LinkGroup="game1">Przycisk Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Przycisk.Przycisk" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000039.html" LinkGroup="game1">Przycisk Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu.Przyciski" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000003E.html" LinkGroup="game1">Przyciski Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Koniec.Przyciski_Pauza" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000045.html" LinkGroup="game1">Przyciski_Pauza Field {game1.Menu_Koniec}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Pauza.Przyciski_Pauza" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000004D.html" LinkGroup="game1">Przyciski_Pauza Field {game1.Menu_Pauza}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000008B.html" LinkGroup="game1">Resources Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Ruch" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000082.html" LinkGroup="game1">Ruch Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="SOLUTION-WIDE PROPERTIES Reference" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_00000000000000A1.html" LinkGroup="game1">SOLUTION-WIDE PROPERTIES Reference</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Speed" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000063.html" LinkGroup="game1">Speed Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.Srodek" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000014.html" LinkGroup="game1">Srodek Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.Stan_Gry" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000001A.html" LinkGroup="game1">Stan_Gry Enumeration</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Koniec.Stan_Gry" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000047.html" LinkGroup="game1">Stan_Gry Method {game1.Menu_Koniec}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Pauza.Stan_Gry" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000004F.html" LinkGroup="game1">Stan_Gry Method {game1.Menu_Pauza}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu.Stan_Gry" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000040.html" LinkGroup="game1">Stan_Gry Method {game1.Menu}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Star" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000005E.html" LinkGroup="game1">Star Field {game1.Postac}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.Star" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000095.html" LinkGroup="game1">Star Field {game1.Resources}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu.Start" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000003B.html" LinkGroup="game1">Start Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Szer" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000065.html" LinkGroup="game1">Szer Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.SzybAnimacji" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000068.html" LinkGroup="game1">SzybAnimacji Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.THREE" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000009C.html" LinkGroup="game1">THREE Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.TWO" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000009B.html" LinkGroup="game1">TWO Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.Update" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000000B.html" LinkGroup="game1">Update Method {game1.Game1}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.Update" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000018.html" LinkGroup="game1">Update Method {game1.Kamera}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.Update" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000002B.html" LinkGroup="game1">Update Method {game1.Main}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Koniec.Update" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000048.html" LinkGroup="game1">Update Method {game1.Menu_Koniec}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Pauza.Update" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000050.html" LinkGroup="game1">Update Method {game1.Menu_Pauza}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu.Update" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000041.html" LinkGroup="game1">Update Method {game1.Menu}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Update" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000007F.html" LinkGroup="game1">Update Method {game1.Postac}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.Widok" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000013.html" LinkGroup="game1">Widok Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Koniec.Wyjscie" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000044.html" LinkGroup="game1">Wyjscie Field {game1.Menu_Koniec}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu_Pauza.Wyjscie" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000004C.html" LinkGroup="game1">Wyjscie Field {game1.Menu_Pauza}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Menu.Wyjscie" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000003C.html" LinkGroup="game1">Wyjscie Field {game1.Menu}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.Wysok" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000066.html" LinkGroup="game1">Wysok Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.Zoom" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000011.html" LinkGroup="game1">Zoom Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main._kamera" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000023.html" LinkGroup="game1">_kamera Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1._main" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000007.html" LinkGroup="game1">_main Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main._menu" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000024.html" LinkGroup="game1">_menu Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main._podloga" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000025.html" LinkGroup="game1">_podloga Field {game1.Main}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac._podloga" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000007A.html" LinkGroup="game1">_podloga Field {game1.Postac}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.akt_postac" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000022.html" LinkGroup="game1">akt_postac Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.applyGravity" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000071.html" LinkGroup="game1">applyGravity Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Przycisk.czy_klikniety" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000033.html" LinkGroup="game1">czy_klikniety Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Przycisk.czy_najechano" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000034.html" LinkGroup="game1">czy_najechano Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.czydalej" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000075.html" LinkGroup="game1">czydalej Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.darkness" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000027.html" LinkGroup="game1">darkness Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.delta" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000012.html" LinkGroup="game1">delta Field {game1.Kamera}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.delta" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000079.html" LinkGroup="game1">delta Field {game1.Postac}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.devMod" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000070.html" LinkGroup="game1">devMod Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.effect1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000094.html" LinkGroup="game1">effect1 Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.friction" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000006F.html" LinkGroup="game1">friction Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000000.html" LinkGroup="game1">game1 Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.graphics" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000002.html" LinkGroup="game1">graphics Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.i" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000077.html" LinkGroup="game1">i Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.isShine" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000005C.html" LinkGroup="game1">isShine Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.j" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000076.html" LinkGroup="game1">j Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.jaskinia" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000092.html" LinkGroup="game1">jaskinia Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.jumpVelocity" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000006D.html" LinkGroup="game1">jumpVelocity Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.kierunek" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000007C.html" LinkGroup="game1">kierunek Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Przycisk.kolor" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000038.html" LinkGroup="game1">kolor Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.las" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000090.html" LinkGroup="game1">las Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.lightMask" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000093.html" LinkGroup="game1">lightMask Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.lightsTarget" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000004.html" LinkGroup="game1">lightsTarget Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.mainTarget" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000005.html" LinkGroup="game1">mainTarget Field {game1.Game1}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.mainTarget" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000028.html" LinkGroup="game1">mainTarget Field {game1.Main}</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.mapa1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000021.html" LinkGroup="game1">mapa1 Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Mapa.mapa_1" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000030.html" LinkGroup="game1">mapa_1 Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.menu_Koniec" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000020.html" LinkGroup="game1">menu_Koniec Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Main.menu_Pauza" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000026.html" LinkGroup="game1">menu_Pauza Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.n" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000008F.html" LinkGroup="game1">n Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.niebo" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000091.html" LinkGroup="game1">niebo Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Resources.p" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000008E.html" LinkGroup="game1">p Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Podloga.pKloc" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000057.html" LinkGroup="game1">pKloc Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.p_startowy" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000060.html" LinkGroup="game1">p_startowy Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.poprzedniStan" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000072.html" LinkGroup="game1">poprzedniStan Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Przycisk.pozycja" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000036.html" LinkGroup="game1">pozycja Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.pozycja_kamera" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000015.html" LinkGroup="game1">pozycja_kamera Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.przyspieszenie" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000064.html" LinkGroup="game1">przyspieszenie Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Klocek.rodzaj" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000054.html" LinkGroup="game1">rodzaj Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Przycisk.rozmiar" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000037.html" LinkGroup="game1">rozmiar Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.ruch_postaci" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000007B.html" LinkGroup="game1">ruch_postaci Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.self" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000006.html" LinkGroup="game1">self Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.shine" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000080.html" LinkGroup="game1">shine Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.shineMask" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000081.html" LinkGroup="game1">shineMask Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.shining" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000005D.html" LinkGroup="game1">shining Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.skok" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000074.html" LinkGroup="game1">skok Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.spadajacy" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000078.html" LinkGroup="game1">spadajacy Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.spadanie" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000073.html" LinkGroup="game1">spadanie Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Postac.spadekKlocka" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000062.html" LinkGroup="game1">spadekKlocka Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Game1.spriteBatch" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000003.html" LinkGroup="game1">spriteBatch Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Przycisk.texture" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000035.html" LinkGroup="game1">texture Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Mapa.titleHeight" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000002E.html" LinkGroup="game1">titleHeight Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Mapa.titleWidth" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000002F.html" LinkGroup="game1">titleWidth Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.transformGracz" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000010.html" LinkGroup="game1">transformGracz Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.update" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000016.html" LinkGroup="game1">update Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Podloga.wczytaj" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000059.html" LinkGroup="game1">wczytaj Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Klocek.wymiary" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_0000000000000053.html" LinkGroup="game1">wymiary Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.x" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000000E.html" LinkGroup="game1">x Field</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="game1.Kamera.y" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:game1.chm::/topic_000000000000000F.html" LinkGroup="game1">y Field</LItem>
+      </Links>
+   </Context>
+   
+
+</DynamicHelp>
+

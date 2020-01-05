@@ -9,14 +9,43 @@ using System.Threading.Tasks;
 
 namespace game1
 {
+    /// <summary>
+    /// Klasa przycisku
+    /// </summary>
     public class Przycisk
     {
+        /// <summary>
+        /// Gdy klikniety wykonuje się dana czynność
+        /// </summary>
         public bool czy_klikniety;
+        /// <summary>
+        ///Gdy najechona wykonuje się dana czynność 
+        /// </summary>
         public bool czy_najechano;
+        /// <summary>
+        ///Tekstura przycisku
+        /// </summary>
         public Texture2D texture;
+        /// <summary>
+        ///położenie/rozmiar
+        /// </summary>
         public Rectangle pozycja;
+        /// <summary>
+        ///rozmiar obszaru z pliku z którego ma zostać pobrany obraz
+        /// </summary>
         public Rectangle rozmiar;
+        /// <summary>
+        ///Opis koloru
+        /// </summary>
         public Color kolor = new Color(255, 255, 255, 255);
+        /// <summary>
+        /// Przycisk
+        /// </summary>
+        /// <param name="czy_najechano"></param>
+        /// <param name="czy_klikniety"></param>
+        /// <param name="texture"></param>
+        /// <param name="pozycja"></param>
+        /// <param name="rozmiar"></param>
         public Przycisk(bool czy_najechano,bool czy_klikniety, Texture2D texture, Rectangle pozycja, Rectangle rozmiar)
         {
             this.czy_najechano = czy_najechano;
@@ -26,6 +55,9 @@ namespace game1
             this.rozmiar = rozmiar;
         }
     }
+    /// <summary>
+    /// Menu gry
+    /// </summary>
     class Menu
     {
         public Przycisk Start;
@@ -38,14 +70,16 @@ namespace game1
 
             Start = new Przycisk(false,false,Resources.M_START,
                     new Rectangle(1280/2-150, 300,300,100), new Rectangle(0,56,300,100));
-            //Pomoc = new Przycisk(false, false, Resources.M_START,
-            //        new Vector2(550, 400), new Rectangle(200, 200, 150, 150));
             Wyjscie = new Przycisk(false,false, Resources.M_KONIEC,
                     new Rectangle(1280/2-150, 500,300,100), new Rectangle(0 ,56, 300, 100));
             Przyciski.Add(Start);
-            //Przyciski.Add(Pomoc);
             Przyciski.Add(Wyjscie);
         }
+        /// <summary>
+        /// Odświeżanie stanu gry
+        /// </summary>
+        /// <param name="aktualny">zczytuje stan gry</param>
+        /// <returns></returns>
         public Main.Stan_Gry Stan_Gry(Main.Stan_Gry aktualny)
         {
             if (Start.czy_klikniety == true)
@@ -55,11 +89,14 @@ namespace game1
             }else if(Wyjscie.czy_klikniety == true)
             {
                 aktualny = Main.Stan_Gry.Wyjscie;
-                
-                //dodac wyłączenie gry
             }
             return aktualny;
         }
+        /// <summary>
+        /// Odświeżanie menu
+        /// </summary>
+        /// <param name="gametime">czas gry</param>
+        /// <param name="mysz">zczytywanie ruchu myszy</param>
         public void Update(GameTime gametime, MouseState mysz)
         {
             
